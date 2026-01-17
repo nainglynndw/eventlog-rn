@@ -20,6 +20,14 @@ It is designed to be **safe**, **fast**, and **privacy-focused**:
 
 This is **not** a cloud analytics platform. It is a tool for developers to capture local context and user journeys for debugging and support.
 
+<p align="center">
+  <img src="https://github.com/nainglynndw/eventlog-rn/raw/main/packages/core/assets/list.png" width="200" alt="Event List" />
+  <img src="https://github.com/nainglynndw/eventlog-rn/raw/main/packages/core/assets/filtering.png" width="200" alt="Filtering" />
+  <img src="https://github.com/nainglynndw/eventlog-rn/raw/main/packages/core/assets/details.png" width="200" alt="Event Details" />
+  <img src="https://github.com/nainglynndw/eventlog-rn/raw/main/packages/core/assets/network.png" width="200" alt="Network Details" />
+</p>
+
+
 ## Documentation
 
 📚 **[Read the Full Documentation](https://nainglynndw.github.io/eventlog-rn/)**

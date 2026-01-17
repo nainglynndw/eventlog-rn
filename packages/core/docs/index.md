@@ -65,3 +65,4 @@ A **local-first activity tracker** for React Native that helps users share their
 - ⚡ **No server needed** - Everything happens locally
 
 **Not an analytics platform.** This is a support tool that respects user privacy.
+- [Error Handling](guide/error-handling.md)

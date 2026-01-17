@@ -70,9 +70,8 @@ export type FeatureConfig = Readonly<{
     readonly maxBodySize?: number;
     readonly redactHeaders?: ReadonlyArray<string>;
   }>;
-  readonly errors?: Readonly<{
+  readonly globalErrors?: Readonly<{
     readonly enabled?: boolean;
-    readonly maxStackLength?: number;
   }>;
 }>;
 

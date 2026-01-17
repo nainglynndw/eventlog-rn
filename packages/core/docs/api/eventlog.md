@@ -22,7 +22,7 @@ init(config?: Partial<EventLogConfig>): Promise<Result<void>>
       - `logRequestBody?: boolean` - Log request bodies (default: false)
       - `logResponseBody?: boolean` - Log response bodies (default: false)
       - `maxBodySize?: number` - Max body size in bytes (default: 1MB)
-    - `errors?:`
+    - `globalErrors?:`
       - `enabled: boolean` - Capture global errors (default: true)
 
 ### Returns

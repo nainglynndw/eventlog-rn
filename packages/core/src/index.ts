@@ -34,5 +34,6 @@ export type {
  * eventLog.screen('Home');
  * ```
  */
-import { createEventLog } from './core/eventlog';
-export const eventLog = createEventLog();
+import { eventLog } from './instance';
+export { eventLog };
+export { EventLogErrorBoundary } from './components/EventLogErrorBoundary';

@@ -13,7 +13,7 @@ import { FilterBar } from './FilterBar';
 import { EventList } from './EventList';
 import { useEvents, useEventFilter, useEventActions } from './hooks';
 import { styles } from './styles';
-import { eventLog as globalEventLog } from '../index';
+import { eventLog as globalEventLog } from '../instance';
 
 export const EventLogViewer: React.FC<EventLogViewerProps> = ({
   maxEvents = 100,

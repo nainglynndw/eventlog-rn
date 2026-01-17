@@ -12,8 +12,10 @@
 
 It is designed to be **safe**, **fast**, and **privacy-focused**:
 - 🏃‍♂️ **Zero performance impact**: Synchronous logging (<1ms) with batched writes.
-- 💾 **Unlimited storage**: Uses MMKV to store thousands of events without the 6MB Android limit.
-- 🛡️ **Privacy-first**: Data stays on the device. You control when to export or share it.
+- 💾 **Unlimited storage**: Uses MMKV to store thousands of events.
+- 🌐 **Network Logs**: Auto-captures `fetch` and `XMLHttpRequest`.
+- 🚨 **Error Handling**: Captures crashes, promise rejections, and React render errors.
+- 🛡️ **Privacy-first**: Data stays on the device. you control when to export.
 - 🧩 **Type-safe**: Built with strict TypeScript and result types for robust error handling.
 
 This is **not** a cloud analytics platform. It is a tool for developers to capture local context and user journeys for debugging and support.
@@ -38,8 +40,13 @@ eventLog.action('button_clicked', { buttonId: 'checkout' });
 const result = await eventLog.export({ mode: 'repro' });
 
 // 4. View logs (optional)
-import { EventLogViewer } from '@eventlog-rn/core';
-<EventLogViewer />
+import { EventLogViewer, EventLogErrorBoundary } from '@eventlog-rn/core';
+
+// Wrap app for error handling
+<EventLogErrorBoundary>
+  <App />
+  <EventLogViewer />
+</EventLogErrorBoundary>
 ```
 
 ## License

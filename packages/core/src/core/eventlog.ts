@@ -36,6 +36,7 @@ import {
 import { debounce } from './utils';
 import { queryEvents } from './query';
 import { enableNetworkInterception } from './network';
+import { enableGlobalErrorLogging } from './errors';
 import { internalStorage } from '../storage/mmkv';
 
 /**
@@ -251,6 +252,16 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
             } as unknown as EventLog;
             
             enableNetworkInterception(networkProxy, proxyConfig);
+        }
+        
+        // Global Error Logging (Enabled by Default)
+        const globalErrorsConfig = config.features?.globalErrors ?? { enabled: true };
+        if (globalErrorsConfig.enabled !== false) {
+             const errorProxy = {
+                error: (error: unknown, context?: unknown) => logEvent('error', createErrorPayload(error, context)),
+             } as unknown as EventLog;
+             
+             enableGlobalErrorLogging(errorProxy, { ...globalErrorsConfig, enabled: true });
         }
         
 

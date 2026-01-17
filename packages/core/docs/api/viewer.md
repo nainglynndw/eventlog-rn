@@ -17,8 +17,7 @@ function DebugScreen() {
 ✅ **Search** - Search events by payload content  
 ✅ **Filter** - Filter by category (screen, action, error, log)  
 ✅ **Export** - Export all events to console  
-✅ **Clear** - Clear all events  
-✅ **Auto-refresh** - Polls for new events every 2 seconds
+✅ **Clear** - Clear all events
 
 ## Props
 
@@ -82,7 +81,6 @@ const styles = StyleSheet.create({
 ## Performance
 
 - **Initial load:** Fetches events on mount
-- **Live Updates:** Polls buffer every 2 seconds to ensure recent logs are visible
 - **Memory:** Displays last N events (configurable via `maxEvents`)
 
 ## Next Steps

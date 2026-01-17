@@ -20,6 +20,7 @@ export default defineConfig({
             { text: 'Getting Started', link: '/guide/getting-started' },
             { text: 'Quick Start', link: '/guide/quickstart' },
             { text: 'Core Concepts', link: '/guide/core-concepts' },
+            { text: 'Error Handling', link: '/guide/error-handling' },
           ],
         },
       ],

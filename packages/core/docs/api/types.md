@@ -1,6 +1,6 @@
 # TypeScript Types
 
-Complete type reference for `eventlog-rn/core`.
+All types can be imported from `eventlog-rn`.
 
 ## Event
 

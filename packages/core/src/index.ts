@@ -27,7 +27,7 @@ export type {
  * 
  * Usage:
  * ```typescript
- * import { eventLog } from 'eventlog-rn-core';
+ * import { eventLog } from 'eventlog-rn';
  * import AsyncStorage from '@react-native-async-storage/async-storage';
  * 
  * await eventLog.init({ storage: AsyncStorage });

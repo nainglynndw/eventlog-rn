@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "eventlog-rn-core"
+  name: "eventlog-rn"
   tagline: Track user activities locally. Share with support when needed.
   actions:
     - theme: brand
@@ -36,7 +36,7 @@ features:
 ## Quick Example
 
 ```typescript
-import { eventLog } from 'eventlog-rn-core';
+import { eventLog } from 'eventlog-rn';
 
 // Initialize once
 await eventLog.init();

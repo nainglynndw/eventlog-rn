@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-  title: 'eventlog-rn-core',
+  title: 'eventlog-rn',
   description: 'Functional, type-safe event logging for React Native',
   base: '/eventlog-rn/',
   
@@ -58,6 +58,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/nainglynndw/eventlog-rn' },
+      { icon: { svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>npm</title><path d="M0 0v24h24V0H0zm8 4h8v4H8V4zm4 12H8v-4h4v4zm4 0h-4v-4h4v4zm4 0h-4v-4h4v4zm0-8H8V4h12v4z"/></svg>' }, link: 'https://www.npmjs.com/package/eventlog-rn' },
     ],
 
     search: {

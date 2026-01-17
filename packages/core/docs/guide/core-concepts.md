@@ -1,8 +1,6 @@
 # Core Concepts
 
-## What is eventlog-rn/core?
-
-A **local-first activity tracker** for React Native that helps users share their app usage with customer support.
+## What is `eventlog-rn` is built around a few simple concepts:ivity tracker** for React Native that helps users share their app usage with customer support.
 
 ### Primary Purpose: Customer Support
 

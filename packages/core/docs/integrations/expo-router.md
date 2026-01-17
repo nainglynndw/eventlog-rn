@@ -10,7 +10,7 @@ Add tracking to your root layout:
 // app/_layout.tsx
 import { usePathname, useSegments } from 'expo-router';
 import { useEffect, useRef } from 'react';
-import { eventLog } from 'eventlog-rn-core';
+import { eventLog } from 'eventlog-rn';
 import { Slot } from 'expo-router';
 
 export default function RootLayout() {

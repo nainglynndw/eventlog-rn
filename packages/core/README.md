@@ -8,29 +8,39 @@
 
 ## What is this?
 
-**eventlog-rn-core** is a local-first activity tracker for React Native that helps you understand user behavior and debug issues by recording screens, actions, and errors. 
+# eventlog-rn
 
-It is designed to be **safe**, **fast**, and **privacy-focused**:
-- 🏃‍♂️ **Zero performance impact**: Synchronous logging (<1ms) with batched writes.
-- 💾 **Unlimited storage**: Uses MMKV to store thousands of events.
-- 🌐 **Network Logs**: Auto-captures `fetch` and `XMLHttpRequest`.
-- 🚨 **Error Handling**: Captures crashes, promise rejections, and React render errors.
-- 🛡️ **Privacy-first**: Data stays on the device. you control when to export.
-- 🧩 **Type-safe**: Built with strict TypeScript and result types for robust error handling.
+Functional, type-safe event logging SDK for React Native.
 
-This is **not** a cloud analytics platform. It is a tool for developers to capture local context and user journeys for debugging and support.
+Optimized for **reliability**, **performance**, and **ease of use**.
 
-## Documentation
+## Features
 
-📚 **[Read the Full Documentation](https://nainglynndw.github.io/eventlog-rn/)**
+- **Type-Safe**: Full TypeScript support with generics.
+- **Batched Uploads**: Efficiently queues events to minimize network requests.
+- **Offline Support**: Caches events when offline and syncs when back online.
+- **Session Tracking**: Automatic session management.
+- **Built-in UI**: Inspect logs on-device with the included Viewer component.
 
 ## Quick Start
 
-```typescript
-import { eventLog } from 'eventlog-rn-core';
+### 1. Install
 
-// 1. Initialize (call once at app start)
-await eventLog.init(); // Network logging enabled by default!
+```bash
+npm install eventlog-rn react-native-mmkv
+```
+
+### 2. Initialize
+
+```typescript
+import { eventLog } from 'eventlog-rn';
+
+// Initialize at app launch based on your config
+eventLog.init({
+  // ...
+});
+```
+Network logging enabled by default!
 
 // 2. Log events
 eventLog.screen('HomeScreen');

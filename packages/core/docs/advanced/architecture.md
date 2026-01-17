@@ -1,6 +1,6 @@
 # Architecture
 
-Deep dive into the internal architecture of `eventlog-rn/core`.
+Deep dive into tThe eventlog-rn architecture is designed for:g-rn/core`.
 
 ## Overview
 

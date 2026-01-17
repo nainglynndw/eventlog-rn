@@ -8,7 +8,7 @@ Add tracking to your `NavigationContainer`:
 
 ```typescript
 import { NavigationContainer } from '@react-navigation/native';
-import { eventLog } from 'eventlog-rn-core';
+import { eventLog } from 'eventlog-rn';
 import { useRef } from 'react';
 
 // Helper to get active route

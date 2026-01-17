@@ -5,7 +5,7 @@
 Install the package and its peer dependencies:
 
 ```bash
-npm install eventlog-rn-core react-native-mmkv
+npm install eventlog-rn react-native-mmkv
 ```
 
 ### For MMKV v4 (React Native 0.75+)
@@ -38,7 +38,7 @@ No additional setup required.
 Call `init()` once at app startup:
 
 ```typescript
-import { eventLog } from 'eventlog-rn/core';
+import { eventLog } from 'eventlog-rn';
 
 // In your index.js or App.tsx
 await eventLog.init({
@@ -87,7 +87,7 @@ try {
 Display events in your app. Can be imported directly from the core package:
 
 ```typescript
-import { EventLogViewer } from 'eventlog-rn/core';
+import { EventLogViewer } from 'eventlog-rn/viewer';
 
 // In your debug screen
 <EventLogViewer />

@@ -5,7 +5,7 @@ In-app viewer component for displaying events.
 ## Usage
 
 ```typescript
-import { EventLogViewer } from 'eventlog-rn-core';
+import { EventLogViewer } from 'eventlog-rn/viewer';
 
 function DebugScreen() {
   return <EventLogViewer />;
@@ -60,7 +60,7 @@ The viewer uses a built-in theme. To customize, you can:
 ```typescript
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { EventLogViewer } from 'eventlog-rn-core';
+import { EventLogViewer } from 'eventlog-rn/viewer';
 
 export function DebugScreen() {
   return (

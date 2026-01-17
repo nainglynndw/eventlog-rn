@@ -18,15 +18,15 @@ try {
   if (typeof (m as any).createMMKV === 'function') {
     // v4 API
     mmkv = (m as any).createMMKV({ id: 'eventlog-rn-core' });
-    console.log('[EventLog] Using MMKV v4');
+
   } else if (typeof (m as any).MMKV === 'function') {
     // v3 API
     mmkv = new (m as any).MMKV({ id: 'eventlog-rn-core' });
-    console.log('[EventLog] Using MMKV v3');
+
   } else if (typeof m === 'function') {
     // v2/v3 fallback (default export)
     mmkv = new (m as any)({ id: 'eventlog-rn-core' });
-    console.log('[EventLog] Using MMKV (default export)');
+
   } else {
     throw new Error('MMKV module found but no valid constructor (createMMKV or class MMKV) found.');
   }

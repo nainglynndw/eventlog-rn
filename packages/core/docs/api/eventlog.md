@@ -16,6 +16,14 @@ init(config?: Partial<EventLogConfig>): Promise<Result<void>>
   - `maxEvents?: number` - Ring buffer size (default: 1000)
   - `maxAgeDays?: number` - Event retention in days (default: 7)
   - `sessionTimeoutMinutes?: number` - Session timeout (default: 30)
+  - `features?:`
+    - `network?:`
+      - `enabled: boolean` - Enable fetch/XHR interception (default: true if `network` object is present)
+      - `logRequestBody?: boolean` - Log request bodies (default: false)
+      - `logResponseBody?: boolean` - Log response bodies (default: false)
+      - `maxBodySize?: number` - Max body size in bytes (default: 1MB)
+    - `errors?:`
+      - `enabled: boolean` - Capture global errors (default: true)
 
 ### Returns
 

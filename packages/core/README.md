@@ -28,7 +28,7 @@ This is **not** a cloud analytics platform. It is a tool for developers to captu
 import { eventLog } from '@eventlog-rn/core';
 
 // 1. Initialize (call once at app start)
-await eventLog.init();
+await eventLog.init(); // Network logging enabled by default!
 
 // 2. Log events
 eventLog.screen('HomeScreen');
@@ -36,6 +36,10 @@ eventLog.action('button_clicked', { buttonId: 'checkout' });
 
 // 3. Export for debugging
 const result = await eventLog.export({ mode: 'repro' });
+
+// 4. View logs (optional)
+import { EventLogViewer } from '@eventlog-rn/core';
+<EventLogViewer />
 ```
 
 ## License

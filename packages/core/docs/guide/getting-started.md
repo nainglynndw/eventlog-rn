@@ -41,7 +41,15 @@ Call `init()` once at app startup:
 import { eventLog } from '@eventlog-rn/core';
 
 // In your index.js or App.tsx
-await eventLog.init();
+await eventLog.init({
+  features: {
+    // Network logging is enabled by default!
+    // But you can configure it:
+    network: {
+      logResponseBody: false, // Set true to capture response bodies
+    },
+  },
+});
 ```
 
 ### With Custom Configuration
@@ -76,10 +84,10 @@ try {
 
 ## Add Viewer (Optional)
 
-Display events in your app:
+Display events in your app. Can be imported directly from the core package:
 
 ```typescript
-import { EventLogViewer } from '@eventlog-rn/core/viewer';
+import { EventLogViewer } from '@eventlog-rn/core';
 
 // In your debug screen
 <EventLogViewer />

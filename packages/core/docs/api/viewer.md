@@ -5,7 +5,7 @@ In-app viewer component for displaying events.
 ## Usage
 
 ```typescript
-import { EventLogViewer } from '@eventlog-rn/core/viewer';
+import { EventLogViewer } from '@eventlog-rn/core';
 
 function DebugScreen() {
   return <EventLogViewer />;
@@ -18,11 +18,14 @@ function DebugScreen() {
 ✅ **Filter** - Filter by category (screen, action, error, log)  
 ✅ **Export** - Export all events to console  
 ✅ **Clear** - Clear all events  
-✅ **Auto-refresh** - Fetches events on mount
+✅ **Auto-refresh** - Polls for new events every 2 seconds
 
 ## Props
 
-The viewer component takes no props. It uses the default `eventLog` singleton instance.
+The viewer component takes **optional** props.
+
+- `eventLog?`: `EventLog` instance. Uses the default singleton if omitted.
+- `maxEvents?`: `number`. Max events to display (default: 100).
 
 ## UI Components
 
@@ -58,7 +61,7 @@ The viewer uses a built-in theme. To customize, you can:
 ```typescript
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { EventLogViewer } from '@eventlog-rn/core/viewer';
+import { EventLogViewer } from '@eventlog-rn/core';
 
 export function DebugScreen() {
   return (
@@ -78,9 +81,8 @@ const styles = StyleSheet.create({
 
 ## Performance
 
-- **Initial load:** Fetches events once on mount
-- **No polling:** Does not auto-refresh (prevents infinite re-renders)
-- **Manual refresh:** Refetch after clear button
+- **Initial load:** Fetches events on mount
+- **Live Updates:** Polls buffer every 2 seconds to ensure recent logs are visible
 - **Memory:** Displays last N events (configurable via `maxEvents`)
 
 ## Next Steps

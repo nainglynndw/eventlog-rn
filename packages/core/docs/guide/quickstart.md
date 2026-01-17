@@ -14,36 +14,36 @@ npm install react-native-nitro-modules
 cd ios && pod install
 ```
 
-## Step 2: Initialize
+## Step 3: Initialize
 
 ```typescript
 // index.js or App.tsx
 import { eventLog } from '@eventlog-rn/core';
 
-await eventLog.init();
-```
-
-## Step 3: Log Events
-
-```typescript
-// Log screen views
-eventLog.screen('HomeScreen');
-
-// Log user actions
-eventLog.action('button_clicked', { buttonId: 'checkout' });
-
-// Log errors
-eventLog.error(error, { screen: 'Checkout' });
+await eventLog.init({
+    features: {
+        network: { enabled: true }
+    }
+});
 ```
 
 ## Step 4: Add Viewer (Optional)
 
 ```typescript
-import { EventLogViewer } from '@eventlog-rn/core/viewer';
+// 4. Use the implicit Viewer (no prop needed!)
+// It automatically uses the singleton instance from the package.
+import { EventLogViewer } from '@eventlog-rn/core';
+import { SafeAreaView } from 'react-native'; // Assuming SafeAreaView is available
 
-// In your debug screen
-function DebugScreen() {
-  return <EventLogViewer />;
+export default function App() {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      {/* ... your app ... */}
+      
+      {/* Viewer automatically connects to the global eventLog */}
+      <EventLogViewer />
+    </SafeAreaView>
+  );
 }
 ```
 

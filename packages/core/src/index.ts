@@ -4,6 +4,8 @@
  */
 
 export { createEventLog } from './core/eventlog';
+export { EventLogViewer } from './viewer/EventLogViewer';
+export type { EventLogViewerProps } from './viewer/types';
 export type {
   EventLog,
   EventLogConfig,

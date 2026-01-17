@@ -2,10 +2,9 @@
  * Type definitions for viewer components
  */
 
-import type { Event, EventCategory, EventLog } from '../types';
+import type { Event, EventCategory } from '../types';
 
 export type EventLogViewerProps = {
-  readonly eventLog?: EventLog;
   readonly maxEvents?: number;
 };
 

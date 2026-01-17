@@ -61,13 +61,8 @@ export type Session = Readonly<{
  * Feature configuration
  */
 export type FeatureConfig = Readonly<{
-  readonly navigation?: Readonly<{
-    readonly enabled: boolean;
-    readonly type?: 'react-navigation' | 'expo-router';
-    readonly includeParams?: boolean;
-  }>;
   readonly network?: Readonly<{
-    readonly enabled: boolean;
+    readonly enabled?: boolean;
     readonly interceptFetch?: boolean;
     readonly interceptAxios?: boolean;
     readonly logRequestBody?: boolean;
@@ -76,7 +71,7 @@ export type FeatureConfig = Readonly<{
     readonly redactHeaders?: ReadonlyArray<string>;
   }>;
   readonly errors?: Readonly<{
-    readonly enabled: boolean;
+    readonly enabled?: boolean;
     readonly maxStackLength?: number;
   }>;
 }>;
@@ -161,4 +156,5 @@ export type EventLog = Readonly<{
   readonly clear: () => Promise<Result<void>>;
   readonly getEvents: () => Result<ReadonlyArray<Event>>;
   readonly query: (query: EventQuery) => Result<ReadonlyArray<Event>>;
+  readonly network: (payload: NetworkEventPayload) => Result<void>;
 }>;

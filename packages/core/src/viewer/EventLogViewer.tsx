@@ -16,15 +16,14 @@ import { styles } from './styles';
 import { eventLog as globalEventLog } from '../index';
 
 export const EventLogViewer: React.FC<EventLogViewerProps> = ({
-  eventLog = globalEventLog,
   maxEvents = 100,
 }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   // Custom hooks for state management
-  const { events, refetch } = useEvents(eventLog, maxEvents);
+  const { events, refetch } = useEvents(globalEventLog, maxEvents);
   const { filter, search, setSearch, toggleFilter, filteredEvents } = useEventFilter(events);
-  const { handleClear, handleExport } = useEventActions(eventLog, refetch);
+  const { handleClear, handleExport } = useEventActions(globalEventLog, refetch);
 
   const handleEventPress = (eventId: string): void => {
     setExpandedId(expandedId === eventId ? null : eventId);

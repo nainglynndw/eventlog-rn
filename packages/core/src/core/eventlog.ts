@@ -35,6 +35,7 @@ import {
 } from './buffer';
 import { debounce } from './utils';
 import { queryEvents } from './query';
+import { enableNetworkInterception } from './network';
 import { internalStorage } from '../storage/mmkv';
 
 /**
@@ -63,6 +64,12 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
   // Mutable state (encapsulated in closure)
   let state: InternalState | null = null;
   let initPromise: Promise<Result<void>> | null = null;
+
+  // Pre-init queue
+  let preInitQueue: Array<{
+    category: Parameters<typeof createEvent>[2];
+    payload: unknown;
+  }> = [];
 
   /**
    * Load session from storage
@@ -171,7 +178,7 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
 
     initPromise = (async (): Promise<Result<void>> => {
       try {
-        console.log('[EventLog] Starting initialization...');
+
 
         // Load or create session
         const savedSession = await loadSession(internalStorage);
@@ -208,7 +215,44 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
         };
 
         await saveSession(internalStorage, session);
-        console.log('[EventLog] Initialization complete!');
+        
+        // Flush pre-init queue
+        if (preInitQueue.length > 0) {
+
+            preInitQueue.forEach(item => {
+                logEvent(item.category, item.payload);
+            });
+            preInitQueue = [];
+        }
+
+        // Enable network interception (default to true if config provided, or just default enabled?)
+        // User requested: "default as network.enabled" and "it should be default true"
+        // Interpreting as: If features.network is present, it defaults to enabled.
+        // Actually, if we want it DEFAULT ENABLED even without config, we should check that.
+        // But usually libraries are opt-in. However, user said "api log... should be default as network.enabled".
+        // And "remove navigation features config. it should be default true".
+        // Let's make network enabled by default if the user passes `features: {}` or even no features?
+        // Let's stick to: If features.network is typically passed, enabled defaults to true.
+        // Actually, let's just default it to TRUE if config.features?.network is defined.
+        
+        const networkConfig = config.features?.network;
+        if (networkConfig) {
+             // If enabled is explicitly false, skip. If undefined or true, enable.
+             if (networkConfig.enabled !== false) {
+                 const networkProxy = {
+                   log: (level: LogLevel, message: string, data?: unknown) => logEvent('log', createLogPayload(level, message, data)),
+                   error: (error: unknown, context?: unknown) => logEvent('error', createErrorPayload(error, context)),
+                   network: (payload: any) => logEvent('network', payload),
+                } as unknown as EventLog;
+                
+                // We pass the config. If enabled is undefined, we treat as true inside `enableNetworkInterception`?
+                // Let's ensure access to enabled property treats undefined as true.
+                const effectiveConfig = { ...networkConfig, enabled: networkConfig.enabled ?? true };
+                enableNetworkInterception(networkProxy, effectiveConfig);
+             }
+        }
+        
+
 
         return { ok: true, value: undefined } as const;
       } catch (error) {
@@ -238,10 +282,10 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
     payload: unknown
   ): Result<void> => {
     if (!state?.initialized) {
-      return {
-        ok: false,
-        error: new Error('[EventLog] Not initialized. Call init() first.'),
-      } as const;
+        // Queue event if not initialized
+        preInitQueue.push({ category, payload });
+
+        return { ok: true, value: undefined } as const;
     }
 
     try {
@@ -268,7 +312,7 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
       saveEvents(internalStorage, events);
       saveSession(internalStorage, state.session);
 
-      console.log(`[EventLog] Event logged: ${category}`);
+
 
       return { ok: true, value: undefined } as const;
     } catch (error) {
@@ -333,7 +377,7 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
         const events = bufferToArray(state.buffer);
         await saveEventsImmediate(internalStorage, events);
 
-        console.log(`[EventLog] Exporting ${events.length} events`);
+
 
         const jsonl = exportEventsAsJSONL(events, options.mode);
         return { ok: true, value: jsonl } as const;
@@ -376,7 +420,8 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
         } as const;
       }
 
-      return { ok: true, value: bufferToArray(state.buffer) } as const;
+      const events = bufferToArray(state.buffer);
+      return { ok: true, value: events } as const;
     },
 
     query: (query: EventQuery): Result<ReadonlyArray<Event>> => {
@@ -397,6 +442,10 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
           error: error instanceof Error ? error : new Error(String(error)),
         } as const;
       }
+    },
+
+    network: (payload: any): Result<void> => {
+        return logEvent('network', payload);
     },
   } as const;
 };

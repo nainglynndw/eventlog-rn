@@ -1,6 +1,6 @@
 {
   "name": "eventlog-rn",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Functional, type-safe event logging SDK for React Native",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

@@ -1,6 +1,6 @@
 # Architecture
 
-Deep dive into tThe eventlog-rn architecture is designed for:g-rn/core`.
+Deep dive into tThe eventlog-rn architecture is designed for:`eventlog-rn`.
 
 ## Overview
 
@@ -173,7 +173,7 @@ Only serialize when persisting to storage
 ```typescript
 import { MMKV } from 'react-native-mmkv';
 
-const mmkv = new MMKV({ id: 'eventlog-rn-core' });
+const mmkv = new MMKV({ id: 'eventlog-rn' });
 
 export const internalStorage: StorageAdapter = {
   setItem: async (key, value) => mmkv.set(key, value),

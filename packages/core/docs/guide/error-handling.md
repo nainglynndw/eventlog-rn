@@ -29,7 +29,7 @@ This component does NOT require any provider context.
 ### Usage
 
 ```tsx
-import { EventLogErrorBoundary } from 'eventlog-rn-core';
+import { EventLogErrorBoundary } from 'eventlog-rn';
 
 export default function App() {
   return (

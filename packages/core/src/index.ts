@@ -1,5 +1,5 @@
 /**
- * eventlog-rn-core
+ * eventlog-rn
  * Functional, type-safe event logging SDK for React Native
  */
 

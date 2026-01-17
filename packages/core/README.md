@@ -1,4 +1,4 @@
-# eventlog-rn-core
+# eventlog-rn
 
 > Functional, type-safe event logging SDK for React Native
 
@@ -50,7 +50,7 @@ eventLog.action('button_clicked', { buttonId: 'checkout' });
 const result = await eventLog.export({ mode: 'repro' });
 
 // 4. View logs (optional)
-import { EventLogViewer, EventLogErrorBoundary } from 'eventlog-rn-core';
+import { EventLogViewer, EventLogErrorBoundary } from 'eventlog-rn';
 
 // Wrap app for error handling
 <EventLogErrorBoundary>

@@ -1,0 +1,9 @@
+# Include dist in npm package
+!dist
+node_modules
+*.log
+.DS_Store
+*.tsbuildinfo
+src
+tsconfig.json
+tsup.config.ts

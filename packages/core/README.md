@@ -20,9 +20,7 @@ This is **not** a cloud analytics platform. It is a tool for developers to captu
 
 ## Documentation
 
-📚 **[Read the Full Documentation](https://eventlog-rn.example.com)**
-
-*(Note: Replace with your actual Vitepress deployment URL)*
+📚 **[Read the Full Documentation](https://nainglynndw.github.io/eventlog-rn/)**
 
 ## Quick Start
 

@@ -30,15 +30,17 @@ jobs:
           cache: npm
 
       - name: Install dependencies
+        working-directory: packages/core
         run: npm ci
 
       - name: Build documentation
+        working-directory: packages/core
         run: npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: packages/core/docs/.vitepress/dist
 
   deploy:
     environment:

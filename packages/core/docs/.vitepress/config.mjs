@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: '@eventlog-rn/core',
   description: 'Functional, type-safe event logging for React Native',
-  base: '/rn-tracker/',
+  base: '/eventlog-rn/',
   
   themeConfig: {
     nav: [

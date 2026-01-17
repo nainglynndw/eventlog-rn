@@ -56,7 +56,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/yourusername/rn-tracker' },
+      { icon: 'github', link: 'https://github.com/nainglynndw/eventlog-rn' },
     ],
 
     search: {

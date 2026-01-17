@@ -10,7 +10,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/yourusername/rn-tracker
+      link: https://github.com/nainglynndw/eventlog-rn
 
 features:
   - icon: 🤝

@@ -18,7 +18,7 @@ cd ios && pod install
 
 ```typescript
 // index.js or App.tsx
-import { eventLog } from '@eventlog-rn/core';
+import { eventLog } from 'eventlog-rn-core';
 
 await eventLog.init({
     features: {
@@ -61,7 +61,7 @@ if (result.ok) {
 ```typescript
 import React, { useEffect } from 'react';
 import { View, Button } from 'react-native';
-import { eventLog } from '@eventlog-rn/core';
+import { eventLog } from 'eventlog-rn-core';
 import { EventLogViewer } from '@eventlog-rn/core/viewer';
 
 // Initialize on app start

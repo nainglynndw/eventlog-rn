@@ -1,6 +1,6 @@
 # Error Handling
 
-@eventlog-rn/core provides two layers of error tracking:
+@@eventlog-rn/core provides two layers of error tracking:
 1. **Global Errors**: Automatically catches app crashes (fatal JS errors) and unhandled promise rejections.
 2. **React Error Boundary**: A component to catch errors in your React component tree.
 
@@ -30,7 +30,7 @@ This component does NOT require any provider context.
 ### Usage
 
 ```tsx
-import { EventLogErrorBoundary } from '@eventlog-rn/core';
+import { EventLogErrorBoundary } from 'eventlog-rn-core';
 
 export default function App() {
   return (
@@ -60,7 +60,7 @@ You can provide a custom UI to show when an error occurs:
 If you already have an Error Boundary, you don't need to replace it. Just add `eventLog.error` to your existing `componentDidCatch`:
 
 ```javascript
-import { eventLog } from '@eventlog-rn/core';
+import { eventLog } from 'eventlog-rn-core';
 
 class MyExistingBoundary extends React.Component {
   componentDidCatch(error, info) {

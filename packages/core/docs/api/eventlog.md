@@ -65,6 +65,7 @@ screen(name: string, params?: unknown): Result<void>
 ### Example
 
 ```typescript
+import { eventLog } from 'eventlog-rn-core';
 eventLog.screen('HomeScreen');
 eventLog.screen('ProfileScreen', { userId: '123' });
 ```

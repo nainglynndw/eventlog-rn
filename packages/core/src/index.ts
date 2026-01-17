@@ -1,5 +1,5 @@
 /**
- * @eventlog-rn/core
+ * eventlog-rn-core
  * Functional, type-safe event logging SDK for React Native
  */
 
@@ -27,7 +27,7 @@ export type {
  * 
  * Usage:
  * ```typescript
- * import { eventLog } from '@eventlog-rn/core';
+ * import { eventLog } from 'eventlog-rn-core';
  * import AsyncStorage from '@react-native-async-storage/async-storage';
  * 
  * await eventLog.init({ storage: AsyncStorage });

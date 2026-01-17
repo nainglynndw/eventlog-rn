@@ -5,7 +5,7 @@
 Install the package and its peer dependencies:
 
 ```bash
-npm install @eventlog-rn/core react-native-mmkv
+npm install eventlog-rn-core react-native-mmkv
 ```
 
 ### For MMKV v4 (React Native 0.75+)

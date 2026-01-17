@@ -1,5 +1,5 @@
 {
-  "name": "@eventlog-rn/core",
+  "name": "eventlog-rn-core",
   "version": "0.3.0",
   "description": "Functional, type-safe event logging SDK for React Native",
   "main": "./dist/index.js",

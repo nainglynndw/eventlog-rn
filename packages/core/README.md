@@ -1,4 +1,4 @@
-# @eventlog-rn/core
+# eventlog-rn-core
 
 > Functional, type-safe event logging SDK for React Native
 
@@ -8,7 +8,7 @@
 
 ## What is this?
 
-**@eventlog-rn/core** is a local-first activity tracker for React Native that helps you understand user behavior and debug issues by recording screens, actions, and errors. 
+**eventlog-rn-core** is a local-first activity tracker for React Native that helps you understand user behavior and debug issues by recording screens, actions, and errors. 
 
 It is designed to be **safe**, **fast**, and **privacy-focused**:
 - 🏃‍♂️ **Zero performance impact**: Synchronous logging (<1ms) with batched writes.
@@ -27,7 +27,7 @@ This is **not** a cloud analytics platform. It is a tool for developers to captu
 ## Quick Start
 
 ```typescript
-import { eventLog } from '@eventlog-rn/core';
+import { eventLog } from 'eventlog-rn-core';
 
 // 1. Initialize (call once at app start)
 await eventLog.init(); // Network logging enabled by default!
@@ -40,7 +40,7 @@ eventLog.action('button_clicked', { buttonId: 'checkout' });
 const result = await eventLog.export({ mode: 'repro' });
 
 // 4. View logs (optional)
-import { EventLogViewer, EventLogErrorBoundary } from '@eventlog-rn/core';
+import { EventLogViewer, EventLogErrorBoundary } from 'eventlog-rn-core';
 
 // Wrap app for error handling
 <EventLogErrorBoundary>

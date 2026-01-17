@@ -235,21 +235,22 @@ export const createEventLog = (config: EventLogConfig = {}): EventLog => {
         // Let's stick to: If features.network is typically passed, enabled defaults to true.
         // Actually, let's just default it to TRUE if config.features?.network is defined.
         
-        const networkConfig = config.features?.network;
-        if (networkConfig) {
-             // If enabled is explicitly false, skip. If undefined or true, enable.
-             if (networkConfig.enabled !== false) {
-                 const networkProxy = {
-                   log: (level: LogLevel, message: string, data?: unknown) => logEvent('log', createLogPayload(level, message, data)),
-                   error: (error: unknown, context?: unknown) => logEvent('error', createErrorPayload(error, context)),
-                   network: (payload: any) => logEvent('network', payload),
-                } as unknown as EventLog;
-                
-                // We pass the config. If enabled is undefined, we treat as true inside `enableNetworkInterception`?
-                // Let's ensure access to enabled property treats undefined as true.
-                const effectiveConfig = { ...networkConfig, enabled: networkConfig.enabled ?? true };
-                enableNetworkInterception(networkProxy, effectiveConfig);
-             }
+        // Network logging is Enabled by Default
+        const networkConfig = config.features?.network ?? { enabled: true };
+        
+        if (networkConfig.enabled !== false) {
+             const proxyConfig = { 
+               ...networkConfig, 
+               enabled: true 
+             }; // Ensure enabled is true for the interceptor
+
+             const networkProxy = {
+               log: (level: LogLevel, message: string, data?: unknown) => logEvent('log', createLogPayload(level, message, data)),
+               error: (error: unknown, context?: unknown) => logEvent('error', createErrorPayload(error, context)),
+               network: (payload: any) => logEvent('network', payload),
+            } as unknown as EventLog;
+            
+            enableNetworkInterception(networkProxy, proxyConfig);
         }
         
 

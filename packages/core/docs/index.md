@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name:# eventlog-rn-core"
+  name: "eventlog-rn-core"
   tagline: Track user activities locally. Share with support when needed.
   actions:
     - theme: brand

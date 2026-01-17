@@ -1,6 +1,8 @@
 # Core Concepts
 
-## What is `eventlog-rn` is built around a few simple concepts:ivity tracker** for React Native that helps users share their app usage with customer support.
+## What is eventlog-rn?
+
+A **local-first activity tracker** for React Native that helps users share their app usage with customer support.
 
 ### Primary Purpose: Customer Support
 
@@ -62,7 +64,7 @@ Every action in your app is an event:
 - `action` - User actions (button clicks, etc.)
 - `error` - Errors and exceptions
 - `log` - General log messages
-- `network` - API calls (coming soon)
+- `network` - API calls (fetch/XHR, enabled by default)
 
 ### Sessions
 

@@ -28,7 +28,7 @@ No additional setup required.
 
 ## Requirements
 
-- React Native >= 0.74.0
+- React Native >= 0.70.0
 - react-native-mmkv >= 3.0.0
 
 **Compatibility:** Supports both MMKV v3 and v4. The library automatically detects which version you have installed.

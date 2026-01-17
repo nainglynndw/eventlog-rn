@@ -1,6 +1,6 @@
 /**
  * Internal MMKV storage adapter
- * Supports both MMKV v3 (RN 0.74+) and v4 (RN 0.75+)
+ * Supports MMKV v2+ (RN 0.70+), v3 (RN 0.74+), and v4 (RN 0.75+)
  * MMKV is synchronous, but we wrap it in Promises to match StorageAdapter interface
  */
 

@@ -3,7 +3,7 @@
 > Functional, type-safe event logging SDK for React Native
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
-[![Bundle Size](https://img.shields.io/badge/Bundle-11.7KB-success.svg)](https://bundlephobia.com/)
+[![Bundle Size](https://img.shields.io/badge/Bundle-13.8KB-success.svg)](https://bundlephobia.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## What is this?

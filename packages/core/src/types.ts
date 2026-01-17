@@ -1,5 +1,5 @@
 /**
- * Type definitions for @eventlog-rn/core
+ * Type definitions for eventlog-rn/core
  * Strict, immutable types following functional programming principles
  */
 

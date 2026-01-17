@@ -1,6 +1,6 @@
 # TypeScript Types
 
-Complete type reference for `@eventlog-rn/core`.
+Complete type reference for `eventlog-rn/core`.
 
 ## Event
 

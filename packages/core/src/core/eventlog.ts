@@ -54,8 +54,8 @@ type InternalState = {
  * Storage keys
  */
 const STORAGE_KEYS = {
-  SESSION: '@eventlog-rn/session',
-  EVENTS: '@eventlog-rn/events',
+  SESSION: 'eventlog-rn/session',
+  EVENTS: 'eventlog-rn/events',
 } as const;
 
 /**

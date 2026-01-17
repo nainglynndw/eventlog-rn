@@ -1,6 +1,6 @@
 # Core Concepts
 
-## What is @eventlog-rn/core?
+## What is eventlog-rn/core?
 
 A **local-first activity tracker** for React Native that helps users share their app usage with customer support.
 

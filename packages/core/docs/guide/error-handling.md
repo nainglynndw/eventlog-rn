@@ -1,6 +1,6 @@
 # Error Handling
 
-@@eventlog-rn/core provides two layers of error tracking:
+`eventlog-rn/core` provides two layers of error tracking:
 1. **Global Errors**: Automatically catches app crashes (fatal JS errors) and unhandled promise rejections.
 2. **React Error Boundary**: A component to catch errors in your React component tree.
 

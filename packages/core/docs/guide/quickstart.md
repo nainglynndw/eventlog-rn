@@ -5,7 +5,7 @@ This guide will get you up and running in 5 minutes.
 ## Step 1: Install
 
 ```bash
-npm install @eventlog-rn/core react-native-mmkv
+npm install eventlog-rn/core react-native-mmkv
 
 # If using React Native 0.75+ with MMKV v4:
 npm install react-native-nitro-modules
@@ -32,7 +32,7 @@ await eventLog.init({
 ```typescript
 // 4. Use the implicit Viewer (no prop needed!)
 // It automatically uses the singleton instance from the package.
-import { EventLogViewer } from '@eventlog-rn/core';
+import { EventLogViewer } from 'eventlog-rn/core';
 import { SafeAreaView } from 'react-native'; // Assuming SafeAreaView is available
 
 export default function App() {
@@ -62,7 +62,7 @@ if (result.ok) {
 import React, { useEffect } from 'react';
 import { View, Button } from 'react-native';
 import { eventLog } from 'eventlog-rn-core';
-import { EventLogViewer } from '@eventlog-rn/core/viewer';
+import { EventLogViewer } from 'eventlog-rn/core/viewer';
 
 // Initialize on app start
 useEffect(() => {

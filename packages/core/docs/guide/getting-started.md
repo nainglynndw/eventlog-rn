@@ -38,7 +38,7 @@ No additional setup required.
 Call `init()` once at app startup:
 
 ```typescript
-import { eventLog } from '@eventlog-rn/core';
+import { eventLog } from 'eventlog-rn/core';
 
 // In your index.js or App.tsx
 await eventLog.init({
@@ -87,7 +87,7 @@ try {
 Display events in your app. Can be imported directly from the core package:
 
 ```typescript
-import { EventLogViewer } from '@eventlog-rn/core';
+import { EventLogViewer } from 'eventlog-rn/core';
 
 // In your debug screen
 <EventLogViewer />

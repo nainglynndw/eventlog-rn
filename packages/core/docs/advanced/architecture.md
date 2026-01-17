@@ -1,6 +1,6 @@
 # Architecture
 
-Deep dive into the internal architecture of `@eventlog-rn/core`.
+Deep dive into the internal architecture of `eventlog-rn/core`.
 
 ## Overview
 

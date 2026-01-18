@@ -1,16 +1,21 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: {
-    index: 'src/index.ts',
-    'viewer/index': 'src/viewer/index.ts',
+    index: "src/index.ts",
+    "viewer/index": "src/viewer/index.ts",
   },
-  format: ['cjs', 'esm'],
+  format: ["cjs", "esm"],
   dts: true,
   clean: true,
-  sourcemap: true,
+  sourcemap: false,
   minify: false,
   treeshake: true,
   splitting: false,
-  external: ['react-native', 'react', 'react-native-mmkv', 'react-native-nitro-modules'],
+  external: [
+    "react-native",
+    "react",
+    "react-native-mmkv",
+    "react-native-nitro-modules",
+  ],
 });

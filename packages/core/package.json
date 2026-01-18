@@ -45,6 +45,10 @@
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nainglynndw/eventlog-rn.git"
+  },
   "peerDependencies": {
     "react-native": ">=0.70.0",
     "react-native-mmkv": ">=3.0.0"

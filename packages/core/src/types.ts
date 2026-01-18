@@ -15,12 +15,12 @@ export type StorageAdapter = Readonly<{
 /**
  * Event categories
  */
-export type EventCategory = 'screen' | 'action' | 'network' | 'error' | 'log';
+export type EventCategory = "screen" | "action" | "network" | "error" | "log";
 
 /**
  * Log levels
  */
-export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
+export type LogLevel = "debug" | "info" | "warn" | "error";
 
 /**
  * Event context (attached to all events)
@@ -52,7 +52,7 @@ export type Event = Readonly<{
 export type Session = Readonly<{
   readonly sessionId: string;
   readonly sessionStart: number;
-  readonly startType: 'cold' | 'warm';
+  readonly startType: "cold" | "warm";
   readonly seq: number;
   readonly lastActivityTime: number;
 }>;
@@ -79,6 +79,7 @@ export type FeatureConfig = Readonly<{
  * Tracker configuration
  */
 export type EventLogConfig = Readonly<{
+  readonly apiKey?: string;
   readonly autoDetect?: boolean;
   readonly maxEvents?: number;
   readonly maxAgeDays?: number;
@@ -92,7 +93,7 @@ export type EventLogConfig = Readonly<{
  * Export options
  */
 export type ExportOptions = Readonly<{
-  readonly mode: 'repro' | 'full';
+  readonly mode: "repro" | "full";
 }>;
 
 /**
@@ -132,7 +133,10 @@ export type Result<T, E = Error> =
  */
 export type EventQuery = Readonly<{
   readonly category?: ReadonlyArray<EventCategory>;
-  readonly timeRange?: Readonly<{ readonly start: number; readonly end: number }>;
+  readonly timeRange?: Readonly<{
+    readonly start: number;
+    readonly end: number;
+  }>;
   readonly sessionId?: string;
   readonly search?: string;
   readonly limit?: number;
@@ -146,7 +150,11 @@ export type EventLog = Readonly<{
   readonly isReady: () => boolean;
   readonly screen: (name: string, params?: unknown) => Result<void>;
   readonly action: (name: string, data?: unknown) => Result<void>;
-  readonly log: (level: LogLevel, message: string, data?: unknown) => Result<void>;
+  readonly log: (
+    level: LogLevel,
+    message: string,
+    data?: unknown,
+  ) => Result<void>;
   readonly error: (error: unknown, context?: unknown) => Result<void>;
   readonly setUser: (user: Readonly<Record<string, unknown>>) => void;
   readonly setContext: (key: string, value: unknown) => void;
